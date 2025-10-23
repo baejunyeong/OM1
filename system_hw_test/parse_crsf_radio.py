@@ -132,7 +132,9 @@ def handleCrsfPacket(ptype, data):
     elif ptype == PacketsTypes.DEVICE_INFO:
         packet = " ".join(map(hex, data))
         print(f"Device Info: {packet}")
-    elif data[2] == PacketsTypes.GPS:
+    # 'ptype' already equals frame[2]; using data[2] is redundant and unsafe.    
+    #elif data[2] == PacketsTypes.GPS:
+    elif ptype == PacketsTypes.GPS:    
         lat = int.from_bytes(data[3:7], byteorder="big", signed=True) / 1e7
         lon = int.from_bytes(data[7:11], byteorder="big", signed=True) / 1e7
         gspd = int.from_bytes(data[11:13], byteorder="big", signed=True) / 36.0
