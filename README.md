@@ -45,6 +45,16 @@ sudo apt-get update
 sudo apt-get install portaudio19-dev python-dev ffmpeg
 ```
 
+💡 **Note:**  
+On modern Ubuntu (20.04 and later), the `python-dev` package has been deprecated and replaced by `python3-dev`.  
+If you see an error such as:
+```
+Package python-dev is not available, but is referred to by another package.
+However the following packages replace it: python-dev-is-python3
+```
+**Solution:** use `python3-dev` instead to ensure successful installation.
+
+
 ### Obtain an OpenMind API Key
 
 Obtain your API Key at [OpenMind Portal](https://portal.openmind.org/). Copy it to `config/spot.json5`, replacing the `openmind_free` placeholder. Or, `cp env.example .env` and add your key to the `.env`. 
